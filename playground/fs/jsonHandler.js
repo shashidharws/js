@@ -25,7 +25,13 @@ fs.readFile('myjsonfile.json', 'utf8', function readFileCallback(err, data){
 	var publPass = obj.publ;
 	
 	console.log("user" + userPass);
-//If you want to rewrite data, do below steps
-    //json = JSON.stringify(obj);
-    //fs.writeFile('myjsonfile.json', json, 'utf8', callback); // write it back 
+
+//If you want to rewrite data like adding admin, do below steps
+
+    obj.admin = "NeverBreaks"
+    json = JSON.stringify(obj);
+    fs.writeFile('myjsonfile.json', json, 'utf8', (err) => {
+            if (err) throw err;
+                console.log('The file has been saved!');
+    });
 }});
